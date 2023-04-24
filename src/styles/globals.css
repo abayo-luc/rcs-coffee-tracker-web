@@ -1,3 +1,23 @@
+@import 'antd/dist/reset.css';
+
+/* fix Tailwind CSS border styles,form Tailwind CSS's preflight */
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: theme(
+    'borderColor.DEFAULT',
+    currentColor
+  ); /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,20 +28,10 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  background-color: rgb(94, 164, 136);
 }
